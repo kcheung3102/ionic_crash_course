@@ -1,9 +1,45 @@
+
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-    <ion-back-button defaultHref="/tabs/films"></ion-back-button>
+    <ion-buttons slot="start" defaultHref="/tabs/(films:films)">
+      <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{film?.title}}</ion-title>
+    <ion-title>{{ film?.title }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="unfavoriteFilm()" *ngIf="isFavorite">
+        <ion-icon name="star" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button (click)="favoriteFilm()" *ngIf="!isFavorite">
+        <ion-icon name="star-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -13,4 +49,6 @@
       {{film.opening_crawl}}
     </ion-card-content>
   </ion-card>
+
+  <ion-button expand="full" (click)="shareFilm()">Share by Email</ion-button>
 </ion-content>

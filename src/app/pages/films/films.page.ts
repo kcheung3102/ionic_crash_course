@@ -18,6 +18,9 @@ export class FilmsPage implements OnInit {
 
   ngOnInit() {
     this.films = this.api.getFilms();
+    this.films.subscribe(data => {
+      console.log('my data: ', data);
+    });
   }
 
   openDetails(film) {
